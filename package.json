@@ -23,15 +23,7 @@
     "eject": "react-scripts eject"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "jest-enzyme",
-    "testEnvironment": "enzyme",
-    "testEnvironmentOptions": {
-      "enzymeAdapter": "react16"
-    },
-    "automock": false,
-    "setupFiles": [
-      "./tests/jestSetup.js"
-    ]
+   
   },
   "browserslist": {
     "production": [
