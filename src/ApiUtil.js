@@ -7,7 +7,7 @@ class API {
        'Origin': '*'
      }
    });
-   console.log(response); //COMES BACK PROPERLY IN JEST TESTS WITH 200 RESPONSE STATUS
+   console.log(response);
    console.log(response.headers);
    console.log('DATA IS HERE', await response.json()); //DOES NOT RESOLVE IN JEST TESTS
   }
