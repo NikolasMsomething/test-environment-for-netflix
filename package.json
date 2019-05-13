@@ -25,14 +25,18 @@
   },
   "dependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-scripts": "^3.0.1"
   },
   "scripts": {
+    "start": "react-scripts start",
     "test": "jest --watch",
     "test:refresh": "rm -rf __recordings__ && jest --watch"
   },
   "jest": {
-    "setupFilesAfterEnv": ["jest-enzyme"],
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
     "testEnvironment": "enzyme",
     "automock": false,
     "setupFiles": [
