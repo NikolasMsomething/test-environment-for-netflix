@@ -1,13 +1,16 @@
 class API {
   async request() {
-   let dog = await fetch("https://us-central1-polly-issue-demo.cloudfunctions.net/respond", {
+   let response = await fetch("https://us-central1-polly-issue-demo.cloudfunctions.net/respond", {
      headers: {
        'Accept-Encoding': 'gzip',
+       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
        'Origin': '*'
      }
    });
-   let cat = await dog.json();
-   console.log(cat)
+   console.log(response);
+   console.log(response.headers);
+   let jsonnedResponse = await response.json();
+   console.log(jsonnedResponse);
   }
 }
 

@@ -1,40 +1,46 @@
 {
-  "name": "test",
+  "name": "test-env-for-netflix",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@pollyjs/adapter-fetch": "^2.3.1",
-    "@pollyjs/core": "^2.3.0",
+    "@pollyjs/adapter-node-http": "^2.4.0",
+    "@pollyjs/core": "^2.4.0",
     "@pollyjs/persister-fs": "^2.1.0",
-    "jest": "^24.7.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.4.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.5.0",
+    "setup-polly-jest": "^0.5.2"
   },
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "jest --watch",
+    "test:refresh": "rm -rf __recordings__ && jest --watch"
   },
   "jest": {
-   
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "setupFilesAfterEnv": ["jest-enzyme"],
+    "testEnvironment": "enzyme",
+    "automock": false,
+    "setupFiles": [
+      "./tests/jestSetup.js"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/tests/mocks/styleMock.js",
+      ".+\\.(svg|png|jpg|gif)$": "identity-obj-proxy"
+    }
   }
 }
